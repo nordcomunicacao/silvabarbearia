@@ -122,7 +122,7 @@ All colors MUST be HSL.
 
 @font-face {
   font-family: 'Kamerik';
-  src: url('/__l5e/assets-v1/293a8b90-db37-4fdd-8bcb-251e539132e7/Kamerik105-Book.ttf') format('truetype');
+  src: url('/fonts/Kamerik105-Book.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -130,7 +130,7 @@ All colors MUST be HSL.
 
 @font-face {
   font-family: 'Kamerik';
-  src: url('/__l5e/assets-v1/8f010e15-09df-4ac4-8819-f6c0c7c5dedb/Kamerik105-Bold.ttf') format('truetype');
+  src: url('/fonts/Kamerik105-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

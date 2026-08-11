@@ -1,7 +1,7 @@
 import { motion, Variants } from "framer-motion";
 import { Phone, MapPin, Instagram } from "lucide-react";
-import logoAsset from "@/assets/logo-silva.png.asset.json";
-import fachadaAsset from "@/assets/fachada-silva.webp.asset.json";
+import logoSilva from "@/assets/logo-silva.png";
+import fachadaSilva from "@/assets/fachada-silva.webp";
 
 const WHATSAPP =
   "https://wa.me/5527996530453?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
@@ -81,7 +81,7 @@ const SilvaBarbearia = () => {
       {/* Foto da fachada com exposição reduzida */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-        style={{ backgroundImage: `url(${fachadaAsset.url})` }}
+        style={{ backgroundImage: `url(${fachadaSilva})` }}
       />
       <div className="absolute inset-0 bg-silva-black/80" />
       <div className="absolute inset-0 bg-gradient-to-b from-silva-black/60 via-transparent to-silva-black" />
@@ -117,7 +117,7 @@ const SilvaBarbearia = () => {
           {/* Logo */}
           <motion.div variants={logoVariants} className="mb-8 flex flex-col items-center">
             <motion.img
-              src={logoAsset.url}
+              src={logoSilva}
               alt="Silva Barbearia"
               className="h-32 w-auto sm:h-36 lg:h-40"
               whileHover={{ scale: 1.05 }}
@@ -159,7 +159,7 @@ const SilvaBarbearia = () => {
                   className="aspect-square overflow-hidden rounded-lg border border-silva-yellow/20"
                 >
                   <img
-                    src={fachadaAsset.url}
+                    src={fachadaSilva}
                     alt="Fachada da Silva Barbearia em Vila Velha"
                     className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
                   />
