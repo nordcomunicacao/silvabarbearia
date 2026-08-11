@@ -176,6 +176,13 @@ const SilvaBarbearia = () => {
                 </div>
               </a>
 
+              <div className="px-2 text-center">
+                <p className="font-kamerik text-[11px] leading-relaxed tracking-wide text-silva-white/40">
+                  Av. Saturnino Rangel Mauro, 2960 Loja 3<br />
+                  Praia de Itaparica, Vila Velha - ES, 29102-570
+                </p>
+              </div>
+
               {/* Informações de Endereço e Horário */}
               <div className="rounded-2xl border border-silva-white/10 bg-silva-white/5 p-6 backdrop-blur-md">
                 <HorariosFuncionamento />
