@@ -137,43 +137,85 @@ const SilvaBarbearia = () => {
             ))}
           </motion.div>
 
-          {/* Localização Gráfica */}
+          {/* Seção Onde Estamos */}
           <motion.div
             variants={sectionVariants}
-            className="mt-16"
+            className="mt-16 flex flex-col items-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
             <motion.span
-              className="mb-6 inline-block w-full text-center font-kamerik text-xl font-bold uppercase tracking-wide text-silva-yellow sm:text-3xl"
+              className="mb-8 inline-block w-full text-center font-kamerik text-2xl font-bold uppercase tracking-widest text-silva-yellow sm:text-3xl"
             >
-              Nossa Localização
+              Onde Estamos
             </motion.span>
 
-            <div className="group relative mb-6 w-full overflow-hidden rounded-2xl border border-silva-yellow/30 bg-silva-white/5 transition-all duration-300 hover:border-silva-yellow/60">
-              <div className="aspect-[16/9] w-full grayscale transition-all duration-500 group-hover:grayscale-0">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.380436418809!2d-40.2917739!3d-20.3465997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb81640a3f8789d%3A0xc3f124c6c96f26e2!2sAv.%20Saturnino%20Rangel%20Mauro%2C%20Vila%20Velha%20-%20ES!5e0!3m2!1spt-BR!2sbr!4v1712850000000!5m2!1spt-BR!2sbr"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Google Maps - Silva Barbearia"
-                />
+            <div className="w-full space-y-6">
+              {/* Mapa com Preview */}
+              <div className="group relative w-full overflow-hidden rounded-2xl border border-silva-yellow/30 bg-silva-white/5 transition-all duration-300 hover:border-silva-yellow/60">
+                <div className="aspect-[16/9] w-full grayscale transition-all duration-500 group-hover:grayscale-0">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.380436418809!2d-40.2917739!3d-20.3465997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb81640a3f8789d%3A0xc3f124c6c96f26e2!2sAv.%20Saturnino%20Rangel%20Mauro%2C%20Vila%20Velha%20-%20ES!5e0!3m2!1spt-BR!2sbr!4v1712850000000!5m2!1spt-BR!2sbr"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Google Maps - Silva Barbearia"
+                  />
+                </div>
               </div>
+
+              {/* Informações de Endereço e Horário */}
+              <div className="grid grid-cols-1 gap-6 rounded-2xl border border-silva-white/10 bg-silva-white/5 p-6 backdrop-blur-md sm:grid-cols-2">
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-2 text-silva-yellow">
+                    <MapPin className="h-5 w-5" />
+                    <span className="font-kamerik text-sm font-bold uppercase tracking-wider">Endereço</span>
+                  </div>
+                  <p className="font-kamerik text-sm leading-relaxed text-silva-white">
+                    Av. Saturnino Rangel Mauro
+                    <br />
+                    Praia de Itaparica, Vila Velha - ES
+                    <br />
+                    CEP: 29102-035
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-2 text-silva-yellow">
+                    <motion.div
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ duration: 4, repeat: Infinity }}
+                    >
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </motion.div>
+                    <span className="font-kamerik text-sm font-bold uppercase tracking-wider">Funcionamento</span>
+                  </div>
+                  <div className="space-y-1 font-kamerik text-sm text-silva-white/90">
+                    <p className="flex justify-between"><span>Seg - Sex:</span> <span>09:00 - 19:00</span></p>
+                    <p className="flex justify-between font-bold text-silva-white"><span>Sábado:</span> <span>08:00 - 17:00</span></p>
+                    <p className="flex justify-between text-silva-white/50"><span>Domingo:</span> <span>Fechado</span></p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Botão de Rotas */}
               <motion.a
                 href="https://maps.google.com/?q=Av.+Saturnino+Rangel+Mauro+-+Praia+de+Itaparica,+Vila+Velha+-+ES,+29102-035"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 0 25px hsl(var(--silva-yellow)/0.4)"
+                }}
                 whileTap={{ scale: 0.98 }}
-                className="flex w-full items-center justify-center gap-2 bg-silva-yellow px-4 py-4 font-kamerik text-sm font-bold uppercase tracking-wider text-silva-black"
+                className="flex w-full items-center justify-center gap-3 rounded-full bg-silva-yellow px-6 py-4 font-kamerik text-sm font-black uppercase tracking-[0.2em] text-silva-black shadow-lg transition-all duration-300"
               >
-                <MapIcon className="h-4 w-4" />
-                Como Chegar
+                <MapIcon className="h-5 w-5" />
+                Traçar Rota no Mapa
               </motion.a>
             </div>
           </motion.div>
