@@ -1,6 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import { Phone, MapPin, Instagram, Map as MapIcon } from "lucide-react";
-import logoSilva from "@/assets/logo-silva.png";
+import logoSilva from "@/assets/logo-silva-new.png";
 import fachadaSilva from "@/assets/fachada-silva.webp";
 
 const WHATSAPP =
