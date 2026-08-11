@@ -202,11 +202,8 @@ const SilvaBarbearia = () => {
             <div className="space-y-4 text-center">
 
 
-              <div className="flex items-center justify-center gap-4">
-                <span className="h-px w-8 bg-gradient-to-r from-transparent to-silva-yellow/40" />
-                <span className="text-xs text-silva-yellow">●</span>
-                <span className="h-px w-8 bg-gradient-to-l from-transparent to-silva-yellow/40" />
-              </div>
+
+
 
               <div className="flex flex-col items-center gap-3">
                 <a
