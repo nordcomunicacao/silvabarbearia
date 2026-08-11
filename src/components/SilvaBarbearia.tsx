@@ -150,20 +150,30 @@ const SilvaBarbearia = () => {
 
             <div className="w-full space-y-6">
               {/* Mapa com Preview */}
-              <div className="group relative w-full overflow-hidden rounded-2xl border border-silva-yellow/30 bg-silva-white/5 transition-all duration-300 hover:border-silva-yellow/60">
+              <a 
+                href="https://maps.app.goo.gl/VJ7oUUp24KZYeB6n8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block w-full overflow-hidden rounded-2xl border border-silva-yellow/30 bg-silva-white/5 transition-all duration-300 hover:border-silva-yellow/60 hover:shadow-[0_0_20px_rgba(255,221,131,0.2)]"
+              >
                 <div className="aspect-[16/9] w-full grayscale transition-all duration-500 group-hover:grayscale-0">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.380436418809!2d-40.2917739!3d-20.3465997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb81640a3f8789d%3A0xc3f124c6c96f26e2!2sAv.%20Saturnino%20Rangel%20Mauro%2C%20Vila%20Velha%20-%20ES!5e0!3m2!1spt-BR!2sbr!4v1712850000000!5m2!1spt-BR!2sbr"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.3204313549643!2d-40.292325999999995!3d-20.349074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb81647414777d9%3A0x6b47c093a388901b!2sSilva%20Barbearia!5e0!3m2!1spt-BR!2sbr!4v1712850000000!5m2!1spt-BR!2sbr"
                     width="100%"
                     height="100%"
-                    style={{ border: 0 }}
+                    style={{ border: 0, pointerEvents: 'none' }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Google Maps - Silva Barbearia"
                   />
                 </div>
-              </div>
+                <div className="absolute inset-0 flex items-center justify-center bg-silva-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="rounded-full bg-silva-yellow px-4 py-2 text-xs font-bold uppercase tracking-wider text-silva-black shadow-xl">
+                    Abrir no Google Maps
+                  </div>
+                </div>
+              </a>
 
               {/* Informações de Endereço e Horário */}
               <div className="grid grid-cols-1 gap-6 rounded-2xl border border-silva-white/10 bg-silva-white/5 p-6 backdrop-blur-md sm:grid-cols-2">
@@ -199,21 +209,6 @@ const SilvaBarbearia = () => {
                 </div>
               </div>
 
-              {/* Botão de Rotas */}
-              <motion.a
-                href="https://maps.google.com/?q=Av.+Saturnino+Rangel+Mauro+-+Praia+de+Itaparica,+Vila+Velha+-+ES,+29102-035"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: "0 0 25px hsl(var(--silva-yellow)/0.4)"
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="flex w-full items-center justify-center gap-3 rounded-full bg-silva-yellow px-6 py-4 font-kamerik text-sm font-black uppercase tracking-[0.2em] text-silva-black shadow-lg transition-all duration-300"
-              >
-                <MapIcon className="h-5 w-5" />
-                Traçar Rota no Mapa
-              </motion.a>
             </div>
           </motion.div>
 
