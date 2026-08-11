@@ -1,4 +1,4 @@
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useReducedMotion } from "framer-motion";
 import { Phone, MapPin, Instagram, Map as MapIcon } from "lucide-react";
 import logoSilva from "@/assets/logo-silva-final.png";
 import fachadaSilva from "@/assets/fachada-silva.webp";
@@ -73,6 +73,7 @@ const LinkItem = ({ href, label }: LinkItemProps) => (
 
 
 const SilvaBarbearia = () => {
+  const shouldReduceMotion = useReducedMotion();
   const links = [
     { href: "https://cashbarber.com.br/silvabarbearia", label: "Agende o seu horário" },
     { href: WHATSAPP, label: "Fale conosco" },
@@ -93,20 +94,20 @@ const SilvaBarbearia = () => {
       <motion.div
         className="absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full blur-[110px]"
         style={{ backgroundColor: "#ffdd83" }}
-        animate={{ scale: [0.3, 1.4, 0.3], opacity: [0, 0.18, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        animate={shouldReduceMotion ? { opacity: 0.1 } : { scale: [0.3, 1.4, 0.3], opacity: [0, 0.18, 0] }}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 9, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className="absolute -bottom-40 -right-40 h-[700px] w-[700px] rounded-full blur-[130px]"
         style={{ backgroundColor: "#ffdd83" }}
-        animate={{ scale: [0.4, 1.6, 0.4], opacity: [0, 0.16, 0] }}
-        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+        animate={shouldReduceMotion ? { opacity: 0.08 } : { scale: [0.4, 1.6, 0.4], opacity: [0, 0.16, 0] }}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 11, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
       <motion.div
         className="absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]"
         style={{ backgroundColor: "#ffdd83" }}
-        animate={{ scale: [0.2, 1.8, 0.2], opacity: [0, 0.12, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        animate={shouldReduceMotion ? { opacity: 0.06 } : { scale: [0.2, 1.8, 0.2], opacity: [0, 0.12, 0] }}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
 
       {/* Conteúdo */}
@@ -141,7 +142,7 @@ const SilvaBarbearia = () => {
             className="mt-16 flex flex-col items-center"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             <motion.span
               className="mb-8 inline-block w-full text-center font-kamerik text-2xl font-bold uppercase tracking-widest text-silva-yellow sm:text-3xl"
