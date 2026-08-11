@@ -158,7 +158,7 @@ const SilvaBarbearia = () => {
               >
                 <div className="aspect-[16/9] w-full grayscale transition-all duration-500 group-hover:grayscale-0">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.3204313549643!2d-40.292325999999995!3d-20.349074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb81647414777d9%3A0x6b47c093a388901b!2sSilva%20Barbearia!5e0!3m2!1spt-BR!2sbr!4v1712850000000!5m2!1spt-BR!2sbr"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.3204313549643!2d-40.292325999999995!3d-20.349074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb816578d052d9a37%3A0xe5102554e796e6d1!2sSilva%20Barbearia!5e0!3m2!1spt-BR!2sbr!4v1740000000000!5m2!1spt-BR!2sbr"
                     width="100%"
                     height="100%"
                     style={{ border: 0, pointerEvents: 'none' }}
