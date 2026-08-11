@@ -2,6 +2,7 @@ import { motion, Variants } from "framer-motion";
 import { Phone, MapPin, Instagram, Map as MapIcon } from "lucide-react";
 import logoSilva from "@/assets/logo-silva-final.png";
 import fachadaSilva from "@/assets/fachada-silva.webp";
+import HorariosFuncionamento from "@/components/HorariosFuncionamento";
 
 const WHATSAPP =
   "https://wa.me/5527996530453?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
@@ -176,23 +177,8 @@ const SilvaBarbearia = () => {
               </a>
 
               {/* Informações de Endereço e Horário */}
-              <div className="grid grid-cols-1 gap-6 rounded-2xl border border-silva-white/10 bg-silva-white/5 p-6 backdrop-blur-md">
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-2 text-silva-yellow">
-                    <motion.div
-                      animate={{ rotate: [0, 10, -10, 0] }}
-                      transition={{ duration: 4, repeat: Infinity }}
-                    >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </motion.div>
-                    <span className="font-kamerik text-sm font-bold uppercase tracking-wider">Funcionamento</span>
-                  </div>
-                  <div className="space-y-1 font-kamerik text-sm text-silva-white/90">
-                    <p className="flex justify-between"><span>Seg - Sex:</span> <span>09:00 - 19:00</span></p>
-                    <p className="flex justify-between font-bold text-silva-white"><span>Sábado:</span> <span>08:00 - 17:00</span></p>
-                    <p className="flex justify-between text-silva-white/50"><span>Domingo:</span> <span>Fechado</span></p>
-                  </div>
-                </div>
+              <div className="rounded-2xl border border-silva-white/10 bg-silva-white/5 p-6 backdrop-blur-md">
+                <HorariosFuncionamento />
               </div>
             </div>
           </motion.div>

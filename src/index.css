@@ -22,6 +22,8 @@ All colors MUST be HSL.
     --silva-black: 0 0% 4%;            /* #0a0a0a */
     --silva-white: 0 0% 100%;          /* #ffffff */
     --silva-yellow: 43 100% 76%;       /* #ffdd83 */
+    --status-open: 142 70% 50%;
+    --status-closed: 0 0% 65%;
 
     
     /* Warm beige palette - matching reference image */
