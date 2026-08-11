@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import { Phone, MapPin, Instagram } from "lucide-react";
+import { Phone, MapPin, Instagram, Map as MapIcon } from "lucide-react";
 import logoSilva from "@/assets/logo-silva.png";
 import fachadaSilva from "@/assets/fachada-silva.webp";
 
@@ -69,10 +69,6 @@ const SilvaBarbearia = () => {
   const links = [
     { href: WHATSAPP, label: "Agende o seu horário" },
     { href: WHATSAPP, label: "Fale conosco" },
-    {
-      href: "https://maps.google.com/?q=Av.+Saturnino+Rangel+Mauro+-+Praia+de+Itaparica,+Vila+Velha+-+ES,+29102-035",
-      label: "Como chegar",
-    },
     { href: WHATSAPP, label: "Curso" },
   ];
 
@@ -132,7 +128,7 @@ const SilvaBarbearia = () => {
             ))}
           </motion.div>
 
-          {/* Sobre Nós */}
+          {/* Localização Gráfica */}
           <motion.div
             variants={sectionVariants}
             className="mt-16"
@@ -141,42 +137,35 @@ const SilvaBarbearia = () => {
             viewport={{ once: true }}
           >
             <motion.span
-              className="mb-4 inline-block w-full text-center font-kamerik text-2xl font-bold uppercase tracking-wide text-silva-yellow sm:text-3xl"
-              whileHover={{ scale: 1.05 }}
+              className="mb-6 inline-block w-full text-center font-kamerik text-2xl font-bold uppercase tracking-wide text-silva-yellow sm:text-3xl"
             >
-              Sobre Nós
+              Nossa Localização
             </motion.span>
 
-            {/* Galeria */}
-            <div className="mb-6 mt-4 grid grid-cols-3 gap-2">
-              {[
-                { delay: 0.1, position: "20% 30%" },
-                { delay: 0.2, position: "50% 55%" },
-                { delay: 0.3, position: "80% 40%" },
-              ].map(({ delay, position }) => (
-                <motion.div
-                  key={delay}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay }}
-                  viewport={{ once: true }}
-                  className="aspect-square overflow-hidden rounded-lg border border-silva-yellow/20"
-                >
-                  <img
-                    src={fachadaSilva}
-                    alt="Fachada da Silva Barbearia em Vila Velha"
-                    style={{ objectPosition: position }}
-                    className="h-full w-full scale-150 object-cover transition-transform duration-500 hover:scale-[1.7]"
-                  />
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="space-y-3 text-center font-kamerik text-sm leading-relaxed text-silva-white/90 [&_p]:text-balance">
-              <p className="font-bold">O seu estilo começa&nbsp;aqui.</p>
-              <p>A Silva Barbearia é referência em Vila Velha - ES quando o assunto é corte, barba e cuidado&nbsp;masculino. Cada atendimento é feito com técnica, atenção aos detalhes e respeito ao seu&nbsp;estilo.</p>
-              <p>Nosso espaço foi pensado para você relaxar: ambiente climatizado, música boa e um time de barbeiros experientes prontos para deixar o seu visual&nbsp;impecável.</p>
-              <p className="font-bold">Agende o seu horário e venha conhecer a&nbsp;barbearia.</p>
+            <div className="group relative mb-6 w-full overflow-hidden rounded-2xl border border-silva-yellow/30 bg-silva-white/5 transition-all duration-300 hover:border-silva-yellow/60">
+              <div className="aspect-[16/9] w-full grayscale transition-all duration-500 group-hover:grayscale-0">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.380436418809!2d-40.2917739!3d-20.3465997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb81640a3f8789d%3A0xc3f124c6c96f26e2!2sAv.%20Saturnino%20Rangel%20Mauro%2C%20Vila%20Velha%20-%20ES!5e0!3m2!1spt-BR!2sbr!4v1712850000000!5m2!1spt-BR!2sbr"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Maps - Silva Barbearia"
+                />
+              </div>
+              <motion.a
+                href="https://maps.google.com/?q=Av.+Saturnino+Rangel+Mauro+-+Praia+de+Itaparica,+Vila+Velha+-+ES,+29102-035"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex w-full items-center justify-center gap-2 bg-silva-yellow px-4 py-4 font-kamerik text-sm font-bold uppercase tracking-wider text-silva-black"
+              >
+                <MapIcon className="h-4 w-4" />
+                Como Chegar
+              </motion.a>
             </div>
           </motion.div>
 
