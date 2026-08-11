@@ -220,14 +220,7 @@ const SilvaBarbearia = () => {
           {/* Rodapé */}
           <footer className="mt-16 border-t border-silva-yellow/20 pt-8">
             <div className="space-y-4 text-center">
-              <div className="flex flex-col items-center justify-center gap-2">
-                <MapPin className="h-5 w-5 text-silva-yellow" />
-                <p className="text-center font-kamerik text-sm font-bold leading-relaxed text-silva-white">
-                  Av. Saturnino Rangel Mauro - Praia de Itaparica
-                  <br />
-                  <span className="font-normal text-silva-white/70">Vila Velha - ES, 29102-035</span>
-                </p>
-              </div>
+
 
               <div className="flex items-center justify-center gap-4">
                 <span className="h-px w-8 bg-gradient-to-r from-transparent to-silva-yellow/40" />
