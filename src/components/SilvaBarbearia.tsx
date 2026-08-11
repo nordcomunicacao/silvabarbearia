@@ -177,7 +177,7 @@ const SilvaBarbearia = () => {
                     <br />
                     Praia de Itaparica, Vila Velha - ES
                     <br />
-                    CEP: 29102-035
+                    29102-035
                   </p>
                 </div>
 
