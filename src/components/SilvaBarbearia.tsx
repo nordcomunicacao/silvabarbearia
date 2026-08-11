@@ -208,7 +208,6 @@ const SilvaBarbearia = () => {
                   </div>
                 </div>
               </div>
-
             </div>
           </motion.div>
 
