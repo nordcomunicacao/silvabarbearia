@@ -16,16 +16,6 @@ const DIAS = [
   "sábado",
 ];
 
-const DIAS = [
-  "domingo",
-  "segunda-feira",
-  "terça-feira",
-  "quarta-feira",
-  "quinta-feira",
-  "sexta-feira",
-  "sábado",
-];
-
 const fmt = (min: number) =>
   `${String(Math.floor(min / 60)).padStart(2, "0")}:${String(min % 60).padStart(2, "0")}`;
 
@@ -65,10 +55,32 @@ const agoraEmSaoPaulo = () => {
 };
 
 const HorariosFuncionamento = () => {
+  const [loading, setLoading] = useState(true);
+  const [horariosDb, setHorariosDb] = useState<Horario[]>(Array(7).fill(null));
   const [aberto, setAberto] = useState(false);
   const [agora, setAgora] = useState(agoraEmSaoPaulo());
 
   useEffect(() => {
+    const fetchSchedules = async () => {
+      const { data, error } = await supabase
+        .from("schedules")
+        .select("*")
+        .order("day_index", { ascending: true });
+      
+      if (data) {
+        const mapped = Array(7).fill(null);
+        data.forEach((item: any) => {
+          if (item.open_minutes !== null) {
+            mapped[item.day_index] = { abre: item.open_minutes, fecha: item.close_minutes };
+          }
+        });
+        setHorariosDb(mapped);
+      }
+      setLoading(false);
+    };
+
+    fetchSchedules();
+
     const timer = setInterval(() => {
       setAgora(agoraEmSaoPaulo());
     }, 1000 * 60);
@@ -79,16 +91,14 @@ const HorariosFuncionamento = () => {
   const { dia, minutos, iso } = agora;
   const eFeriado = DATAS_ESPECIAIS.includes(iso);
 
-  const hoje = eFeriado ? null : HORARIOS[dia];
+  const hoje = eFeriado ? null : horariosDb[dia];
   const estaAberta = !!hoje && minutos >= hoje.abre && minutos < hoje.fecha;
 
   const proximaAbertura = useMemo(() => {
-    if (estaAberta) return null;
+    if (loading || estaAberta) return null;
     
-    // Se for hoje antes de abrir
     if (hoje && minutos < hoje.abre) return `Abre hoje às ${fmt(hoje.abre)}`;
     
-    // Procurar os próximos 14 dias para garantir que achamos uma abertura após feriados
     for (let i = 1; i <= 14; i++) {
       const dataFutura = new Date();
       dataFutura.setDate(dataFutura.getDate() + i);
@@ -102,7 +112,7 @@ const HorariosFuncionamento = () => {
       
       const diaFuturo = dataFutura.getDay();
       const eFeriadoFuturo = DATAS_ESPECIAIS.includes(isoFuturo);
-      const h = eFeriadoFuturo ? null : HORARIOS[diaFuturo];
+      const h = eFeriadoFuturo ? null : horariosDb[diaFuturo];
       
       if (h) {
         if (i === 1) return `Abre amanhã às ${fmt(h.abre)}`;
@@ -110,7 +120,7 @@ const HorariosFuncionamento = () => {
       }
     }
     return null;
-  }, [minutos, hoje, estaAberta, dia]);
+  }, [loading, minutos, hoje, estaAberta, dia, horariosDb]);
 
   const ordem = useMemo(() => {
     return Array.from({ length: 7 }, (_, i) => {
@@ -129,7 +139,15 @@ const HorariosFuncionamento = () => {
         eHoje: i === 0
       };
     });
-  }, [iso]); // Re-calcula se o dia mudar
+  }, [iso]);
+
+  if (loading) {
+    return (
+      <div className="flex w-full items-center justify-center py-2">
+        <Loader2 className="h-4 w-4 animate-spin text-silva-yellow" />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full">
@@ -174,7 +192,7 @@ const HorariosFuncionamento = () => {
             <div className="mt-4 space-y-1.5 border-t border-silva-white/10 pt-4">
               {ordem.map((item) => {
                 const eFeriadoItem = DATAS_ESPECIAIS.includes(item.iso);
-                const h = eFeriadoItem ? null : HORARIOS[item.dia];
+                const h = eFeriadoItem ? null : horariosDb[item.dia];
                 
                 return (
                   <p
