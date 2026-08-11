@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Clock } from "lucide-react";
 
@@ -57,8 +57,17 @@ const agoraEmSaoPaulo = () => {
 
 const HorariosFuncionamento = () => {
   const [aberto, setAberto] = useState(false);
+  const [agora, setAgora] = useState(agoraEmSaoPaulo());
 
-  const { dia, minutos } = useMemo(agoraEmSaoPaulo, []);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAgora(agoraEmSaoPaulo());
+    }, 1000 * 60); // Atualiza a cada minuto
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const { dia, minutos } = agora;
 
   const hoje = HORARIOS[dia];
   const estaAberta = !!hoje && minutos >= hoje.abre && minutos < hoje.fecha;
