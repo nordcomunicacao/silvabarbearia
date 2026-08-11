@@ -10,7 +10,7 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.15, delayChildren: 0.4 },
   },
 };
 
@@ -25,12 +25,17 @@ const logoVariants: Variants = {
 };
 
 const linkVariants: Variants = {
-  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  hidden: { opacity: 0, x: -20, scale: 0.98 },
   visible: {
     opacity: 1,
-    y: 0,
+    x: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { 
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+      mass: 1,
+    },
   },
 };
 
@@ -55,9 +60,13 @@ const LinkItem = ({ href, label }: LinkItemProps) => (
     target="_blank"
     rel="noopener noreferrer"
     variants={linkVariants}
-    whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-    whileTap={{ scale: 0.98 }}
-    className="group flex w-full items-center justify-center rounded-full border border-silva-yellow/50 bg-silva-white/5 px-5 py-3.5 backdrop-blur-sm transition-all duration-300 hover:border-silva-yellow hover:bg-silva-yellow hover:shadow-[0_0_25px_hsl(var(--silva-yellow)/0.35)]"
+    whileHover={{ 
+      scale: 1.02, 
+      backgroundColor: "var(--silva-yellow)",
+      transition: { duration: 0.25, ease: "easeOut" } 
+    }}
+    whileTap={{ scale: 0.97 }}
+    className="group flex w-full items-center justify-center rounded-full border border-silva-yellow/40 bg-silva-white/5 px-5 py-3.5 backdrop-blur-sm transition-all duration-300 hover:border-silva-yellow hover:shadow-[0_0_20px_hsl(var(--silva-yellow)/0.3)]"
   >
     <span className="font-kamerik text-sm font-bold uppercase tracking-wider text-silva-white transition-colors duration-300 group-hover:text-silva-black">
       {label}
