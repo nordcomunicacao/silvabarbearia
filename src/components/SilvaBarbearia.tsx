@@ -178,7 +178,7 @@ const SilvaBarbearia = () => {
 
               <div className="px-2 text-center">
                 <p className="font-kamerik text-[11px] leading-relaxed tracking-wide text-silva-white/40">
-                  Av. Saturnino Rangel Mauro, 2960 Loja 3<br />
+                  <span className="font-bold text-silva-white">Av. Saturnino Rangel Mauro, 2960 Loja 3</span><br />
                   Praia de Itaparica, Vila Velha - ES, 29102-570
                 </p>
               </div>
