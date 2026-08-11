@@ -115,7 +115,7 @@ const SilvaBarbearia = () => {
             <motion.img
               src={logoSilva}
               alt="Silva Barbearia"
-              className="h-32 w-auto sm:h-36 lg:h-40"
+              className="h-44 w-auto sm:h-52 lg:h-60"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             />
