@@ -149,7 +149,11 @@ const SilvaBarbearia = () => {
 
             {/* Galeria */}
             <div className="mb-6 mt-4 grid grid-cols-3 gap-2">
-              {[0.1, 0.2, 0.3].map((delay) => (
+              {[
+                { delay: 0.1, position: "20% 30%" },
+                { delay: 0.2, position: "50% 55%" },
+                { delay: 0.3, position: "80% 40%" },
+              ].map(({ delay, position }) => (
                 <motion.div
                   key={delay}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -161,7 +165,8 @@ const SilvaBarbearia = () => {
                   <img
                     src={fachadaSilva}
                     alt="Fachada da Silva Barbearia em Vila Velha"
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+                    style={{ objectPosition: position }}
+                    className="h-full w-full scale-150 object-cover transition-transform duration-500 hover:scale-[1.7]"
                   />
                 </motion.div>
               ))}
