@@ -82,11 +82,11 @@ const SilvaBarbearia = () => {
     <div className="relative min-h-screen w-full overflow-hidden bg-silva-black">
       {/* Foto da fachada com exposição reduzida */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{ backgroundImage: `url(${fachadaSilva})` }}
       />
-      <div className="absolute inset-0 bg-silva-black/80" />
-      <div className="absolute inset-0 bg-gradient-to-b from-silva-black/60 via-transparent to-silva-black" />
+      <div className="absolute inset-0 bg-silva-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-silva-black/40 via-transparent to-silva-black" />
 
       {/* Halos amarelos animados */}
       <motion.div
