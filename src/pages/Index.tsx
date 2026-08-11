@@ -1,7 +1,7 @@
-import LinkBioFitInLess from "@/components/LinkBioFitInLess";
+import SilvaBarbearia from "@/components/SilvaBarbearia";
 
 const Index = () => {
-  return <LinkBioFitInLess />;
+  return <SilvaBarbearia />;
 };
 
 export default Index;
