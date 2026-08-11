@@ -84,20 +84,52 @@ const HorariosFuncionamento = () => {
 
   const proximaAbertura = useMemo(() => {
     if (estaAberta) return null;
+    
+    // Se for hoje antes de abrir
     if (hoje && minutos < hoje.abre) return `Abre hoje às ${fmt(hoje.abre)}`;
-    for (let i = 1; i <= 7; i++) {
-      const d = (dia + i) % 7;
-      const h = HORARIOS[d];
+    
+    // Procurar os próximos 14 dias para garantir que achamos uma abertura após feriados
+    for (let i = 1; i <= 14; i++) {
+      const dataFutura = new Date();
+      dataFutura.setDate(dataFutura.getDate() + i);
+      
+      const isoFuturo = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "America/Sao_Paulo",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(dataFutura);
+      
+      const diaFuturo = dataFutura.getDay();
+      const eFeriadoFuturo = DATAS_ESPECIAIS.includes(isoFuturo);
+      const h = eFeriadoFuturo ? null : HORARIOS[diaFuturo];
+      
       if (h) {
-        return i === 1
-          ? `Abre amanhã às ${fmt(h.abre)}`
-          : `Abre ${DIAS[d]} às ${fmt(h.abre)}`;
+        if (i === 1) return `Abre amanhã às ${fmt(h.abre)}`;
+        return `Abre ${DIAS[diaFuturo]} às ${fmt(h.abre)}`;
       }
     }
     return null;
-  }, [dia, minutos, hoje, estaAberta]);
+  }, [minutos, hoje, estaAberta, dia]);
 
-  const ordem = Array.from({ length: 7 }, (_, i) => (dia + i) % 7);
+  const ordem = useMemo(() => {
+    return Array.from({ length: 7 }, (_, i) => {
+      const data = new Date();
+      data.setDate(data.getDate() + i);
+      const iso = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "America/Sao_Paulo",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(data);
+      
+      return {
+        dia: data.getDay(),
+        iso,
+        eHoje: i === 0
+      };
+    });
+  }, [iso]); // Re-calcula se o dia mudar
 
   return (
     <div className="w-full">
@@ -140,17 +172,21 @@ const HorariosFuncionamento = () => {
             className="overflow-hidden"
           >
             <div className="mt-4 space-y-1.5 border-t border-silva-white/10 pt-4">
-              {ordem.map((d) => {
-                const h = HORARIOS[d];
-                const eHoje = d === dia;
+              {ordem.map((item) => {
+                const eFeriadoItem = DATAS_ESPECIAIS.includes(item.iso);
+                const h = eFeriadoItem ? null : HORARIOS[item.dia];
+                
                 return (
                   <p
-                    key={d}
+                    key={item.iso}
                     className={`flex justify-between font-kamerik text-sm ${
-                      eHoje ? "font-bold text-silva-white" : "text-silva-white/60"
+                      item.eHoje ? "font-bold text-silva-white" : "text-silva-white/60"
                     }`}
                   >
-                    <span className="capitalize">{DIAS[d]}</span>
+                    <span className="capitalize">
+                      {item.eHoje ? "Hoje" : DIAS[item.dia]}
+                      {eFeriadoItem && <span className="ml-2 text-[10px] text-status-closed opacity-80">(Feriado)</span>}
+                    </span>
                     <span>{h ? `${fmt(h.abre)} - ${fmt(h.fecha)}` : "Fechada"}</span>
                   </p>
                 );
