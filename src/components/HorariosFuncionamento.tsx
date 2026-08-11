@@ -8,7 +8,7 @@ type Horario = { abre: number; fecha: number } | null;
 const HORARIOS: Horario[] = [
   null, // domingo
   { abre: 9 * 60, fecha: 19 * 60 }, // segunda
-  { abre: 9 * 60, fecha: 20 * 60 }, // terça
+  { abre: 9 * 60, fecha: 19 * 60 }, // terça
   { abre: 9 * 60, fecha: 20 * 60 }, // quarta
   { abre: 9 * 60, fecha: 20 * 60 }, // quinta
   { abre: 9 * 60, fecha: 20 * 60 }, // sexta
