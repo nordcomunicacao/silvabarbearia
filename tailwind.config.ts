@@ -83,7 +83,9 @@ export default {
         body: ["Montserrat", "system-ui", "sans-serif"],
         kanit: ["Kanit", "system-ui", "sans-serif"],
         montserrat: ["Montserrat", "system-ui", "sans-serif"],
+        kamerik: ["Kamerik", "Montserrat", "system-ui", "sans-serif"],
       },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
