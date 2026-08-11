@@ -5,7 +5,7 @@ import fachadaSilva from "@/assets/fachada-silva.webp";
 import HorariosFuncionamento from "@/components/HorariosFuncionamento";
 
 const WHATSAPP =
-  "https://wa.me/5527996530453?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
+  "https://wa.me/5527996530453?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Silva%20Barbearia.";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
