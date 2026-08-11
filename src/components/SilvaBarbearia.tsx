@@ -209,21 +209,6 @@ const SilvaBarbearia = () => {
                 </div>
               </div>
 
-              {/* Botão de Rotas */}
-              <motion.a
-                href="https://maps.google.com/?q=Av.+Saturnino+Rangel+Mauro+-+Praia+de+Itaparica,+Vila+Velha+-+ES,+29102-035"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: "0 0 25px hsl(var(--silva-yellow)/0.4)"
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="flex w-full items-center justify-center gap-3 rounded-full bg-silva-yellow px-6 py-4 font-kamerik text-sm font-black uppercase tracking-[0.2em] text-silva-black shadow-lg transition-all duration-300"
-              >
-                <MapIcon className="h-5 w-5" />
-                Traçar Rota no Mapa
-              </motion.a>
             </div>
           </motion.div>
 
