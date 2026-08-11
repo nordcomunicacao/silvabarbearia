@@ -1,19 +1,19 @@
 import { useMemo, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Clock } from "lucide-react";
+import { ChevronDown, Clock, Loader2 } from "lucide-react";
 import { DATAS_ESPECIAIS } from "@/config/calendario";
+import { supabase } from "@/integrations/supabase/client";
 
 type Horario = { abre: number; fecha: number } | null;
 
-// index 0 = domingo ... 6 = sábado
-const HORARIOS: Horario[] = [
-  null, // domingo
-  { abre: 9 * 60, fecha: 19 * 60 }, // segunda
-  { abre: 9 * 60, fecha: 19 * 60 }, // terça
-  { abre: 9 * 60, fecha: 20 * 60 }, // quarta
-  { abre: 9 * 60, fecha: 20 * 60 }, // quinta
-  { abre: 9 * 60, fecha: 20 * 60 }, // sexta
-  { abre: 8 * 60, fecha: 16 * 60 }, // sábado
+const DIAS = [
+  "domingo",
+  "segunda-feira",
+  "terça-feira",
+  "quarta-feira",
+  "quinta-feira",
+  "sexta-feira",
+  "sábado",
 ];
 
 const DIAS = [
