@@ -17,6 +17,12 @@ All colors MUST be HSL.
     /* Fit In Less Brand Colors */
     --fitinless-blue: 230 100% 20%;    /* #001969 */
     --fitinless-green: 160 56% 57%;    /* #53d1aa */
+
+    /* Silva Barbearia Brand Colors */
+    --silva-black: 0 0% 4%;            /* #0a0a0a */
+    --silva-white: 0 0% 100%;          /* #ffffff */
+    --silva-yellow: 43 100% 76%;       /* #ffdd83 */
+
     
     /* Warm beige palette - matching reference image */
     --background: 38 35% 92%;
