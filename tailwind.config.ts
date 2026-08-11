@@ -31,6 +31,13 @@ export default {
           blue: "hsl(var(--fitinless-blue))",
           green: "hsl(var(--fitinless-green))",
         },
+        // Silva Barbearia Brand Colors
+        silva: {
+          black: "hsl(var(--silva-black))",
+          white: "hsl(var(--silva-white))",
+          yellow: "hsl(var(--silva-yellow))",
+        },
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
