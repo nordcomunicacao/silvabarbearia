@@ -37,7 +37,6 @@ export default function Index() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectAllowed: true,
         redirectTo: window.location.origin
       }
     });
