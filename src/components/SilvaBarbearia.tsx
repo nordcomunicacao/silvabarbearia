@@ -60,19 +60,16 @@ const LinkItem = ({ href, label }: LinkItemProps) => (
     target="_blank"
     rel="noopener noreferrer"
     variants={linkVariants}
-    whileHover={{ 
-      scale: 1.02, 
-      backgroundColor: "var(--silva-yellow)",
-      transition: { duration: 0.25, ease: "easeOut" } 
-    }}
+    whileHover={{ scale: 1.02 }}
     whileTap={{ scale: 0.97 }}
-    className="group flex w-full items-center justify-center rounded-full border border-silva-yellow/40 bg-silva-white/5 px-5 py-3.5 backdrop-blur-sm transition-all duration-300 hover:border-silva-yellow hover:shadow-[0_0_20px_hsl(var(--silva-yellow)/0.3)]"
+    className="group flex w-full items-center justify-center rounded-full border border-silva-yellow/40 bg-silva-white/5 px-5 py-3.5 backdrop-blur-sm transition-colors duration-300 hover:border-silva-yellow hover:bg-silva-yellow hover:shadow-[0_0_20px_hsl(var(--silva-yellow)/0.35)]"
   >
     <span className="font-kamerik text-sm font-bold uppercase tracking-wider text-silva-white transition-colors duration-300 group-hover:text-silva-black">
       {label}
     </span>
   </motion.a>
 );
+
 
 const SilvaBarbearia = () => {
   const links = [
