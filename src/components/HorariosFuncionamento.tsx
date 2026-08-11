@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Clock } from "lucide-react";
+import { DATAS_ESPECIAIS } from "@/config/calendario";
 
 type Horario = { abre: number; fecha: number } | null;
 
@@ -13,17 +14,6 @@ const HORARIOS: Horario[] = [
   { abre: 9 * 60, fecha: 20 * 60 }, // quinta
   { abre: 9 * 60, fecha: 20 * 60 }, // sexta
   { abre: 8 * 60, fecha: 16 * 60 }, // sábado
-];
-
-const FERIADOS = [
-  "2026-01-01", // Ano Novo
-  "2026-04-21", // Tiradentes
-  "2026-05-01", // Dia do Trabalho
-  "2026-09-07", // Independência
-  "2026-10-12", // Padroeira
-  "2026-11-02", // Finados
-  "2026-11-15", // Proclamação da República
-  "2026-12-25", // Natal
 ];
 
 const DIAS = [
@@ -87,7 +77,7 @@ const HorariosFuncionamento = () => {
   }, []);
 
   const { dia, minutos, iso } = agora;
-  const eFeriado = FERIADOS.includes(iso);
+  const eFeriado = DATAS_ESPECIAIS.includes(iso);
 
   const hoje = eFeriado ? null : HORARIOS[dia];
   const estaAberta = !!hoje && minutos >= hoje.abre && minutos < hoje.fecha;
