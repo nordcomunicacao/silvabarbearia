@@ -176,21 +176,7 @@ const SilvaBarbearia = () => {
               </a>
 
               {/* Informações de Endereço e Horário */}
-              <div className="grid grid-cols-1 gap-6 rounded-2xl border border-silva-white/10 bg-silva-white/5 p-6 backdrop-blur-md sm:grid-cols-2">
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-2 text-silva-yellow">
-                    <MapPin className="h-5 w-5" />
-                    <span className="font-kamerik text-sm font-bold uppercase tracking-wider">Endereço</span>
-                  </div>
-                  <p className="font-kamerik text-sm leading-relaxed text-silva-white">
-                    Av. Saturnino Rangel Mauro
-                    <br />
-                    Praia de Itaparica, Vila Velha - ES
-                    <br />
-                    29102-035
-                  </p>
-                </div>
-
+              <div className="grid grid-cols-1 gap-6 rounded-2xl border border-silva-white/10 bg-silva-white/5 p-6 backdrop-blur-md">
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center gap-2 text-silva-yellow">
                     <motion.div
