@@ -103,9 +103,9 @@ const SilvaBarbearia = () => {
       />
 
       {/* Conteúdo */}
-      <div className="relative z-10 flex min-h-screen flex-col px-6 py-12 sm:px-10">
+      <div className="relative z-10 flex min-h-screen flex-col px-4 py-8 sm:px-10 sm:py-12">
         <motion.div
-          className="mx-auto w-full max-w-xs sm:max-w-sm"
+          className="mx-auto w-full max-w-sm sm:max-w-md"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -137,7 +137,7 @@ const SilvaBarbearia = () => {
             viewport={{ once: true }}
           >
             <motion.span
-              className="mb-6 inline-block w-full text-center font-kamerik text-2xl font-bold uppercase tracking-wide text-silva-yellow sm:text-3xl"
+              className="mb-6 inline-block w-full text-center font-kamerik text-xl font-bold uppercase tracking-wide text-silva-yellow sm:text-3xl"
             >
               Nossa Localização
             </motion.span>
