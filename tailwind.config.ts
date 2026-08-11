@@ -37,6 +37,10 @@ export default {
           white: "hsl(var(--silva-white))",
           yellow: "hsl(var(--silva-yellow))",
         },
+        status: {
+          open: "hsl(var(--status-open))",
+          closed: "hsl(var(--status-closed))",
+        },
 
         primary: {
           DEFAULT: "hsl(var(--primary))",
