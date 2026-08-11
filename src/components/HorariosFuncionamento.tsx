@@ -15,6 +15,17 @@ const HORARIOS: Horario[] = [
   { abre: 8 * 60, fecha: 16 * 60 }, // sábado
 ];
 
+const FERIADOS = [
+  "2026-01-01", // Ano Novo
+  "2026-04-21", // Tiradentes
+  "2026-05-01", // Dia do Trabalho
+  "2026-09-07", // Independência
+  "2026-10-12", // Padroeira
+  "2026-11-02", // Finados
+  "2026-11-15", // Proclamação da República
+  "2026-12-25", // Natal
+];
+
 const DIAS = [
   "domingo",
   "segunda-feira",
@@ -49,9 +60,17 @@ const agoraEmSaoPaulo = () => {
     sab: 6,
   };
   const chave = get("weekday").toLowerCase().replace(".", "").slice(0, 3);
+  const iso = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+
   return {
     dia: mapaDias[chave] ?? new Date().getDay(),
     minutos: Number(get("hour")) * 60 + Number(get("minute")),
+    iso,
   };
 };
 
@@ -62,14 +81,15 @@ const HorariosFuncionamento = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setAgora(agoraEmSaoPaulo());
-    }, 1000 * 60); // Atualiza a cada minuto
+    }, 1000 * 60);
 
     return () => clearInterval(timer);
   }, []);
 
-  const { dia, minutos } = agora;
+  const { dia, minutos, iso } = agora;
+  const eFeriado = FERIADOS.includes(iso);
 
-  const hoje = HORARIOS[dia];
+  const hoje = eFeriado ? null : HORARIOS[dia];
   const estaAberta = !!hoje && minutos >= hoje.abre && minutos < hoje.fecha;
 
   const proximaAbertura = useMemo(() => {
