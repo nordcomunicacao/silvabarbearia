@@ -81,7 +81,7 @@ const SilvaBarbearia = () => {
   const links = [
     { href: "https://cashbarber.com.br/silvabarbearia", label: "Agende o seu horário" },
     { href: WHATSAPP, label: "Fale conosco" },
-    { href: WHATSAPP, label: "Curso" },
+    { href: "https://alexsilvabarbeiro.com.br/", label: "Curso" },
   ];
 
   return (
